@@ -1,0 +1,3371 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 20261.26.0410.0924                               -->
+<workbook original-version='18.1' source-build='2026.1.1 (20261.26.0410.0924)' source-platform='win' version='18.1' xml:base='https://public.tableau.com' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <document-format-change-manifest>
+    <AccessibleZoneTabOrder />
+    <AnimationOnByDefault />
+    <AutoCreateAndUpdateDSDPhoneLayouts />
+    <IntuitiveSorting />
+    <IntuitiveSorting_SP2 />
+    <MarkAnimation />
+    <ObjectModelEncapsulateLegacy />
+    <ObjectModelExtractV2 />
+    <ObjectModelTableType />
+    <SchemaViewerObjectModel />
+    <SetMembershipControl />
+    <SheetIdentifierTracking />
+    <_.fcp.VConnDownstreamExtractsWithWarnings.true...VConnDownstreamExtractsWithWarnings />
+    <WindowsPersistSimpleIdentifiers />
+    <ZoneBackgroundTransparency />
+  </document-format-change-manifest>
+  <repository-location id='Meta_Product_Analytics' path='/workbooks' revision='1.0' />
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <datasources>
+    <datasource caption='users+' inline='true' name='federated.1gvn5lb1i6urzg18tr2ho01wsn5g' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='users' name='textscan.0d16jpv0q6qgun15buflx0bm9pl3'>
+            <connection class='textscan' directory='C:/Users/Maedo/Documents/Meta_product_analytics/Data/raw' filename='users.csv' password='' server='' workgroup-auth-mode='as-is' />
+          </named-connection>
+        </named-connections>
+        <relation type='collection'>
+          <relation connection='textscan.0d16jpv0q6qgun15buflx0bm9pl3' name='users.csv' table='[users#csv]' type='table'>
+            <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+              <column datatype='integer' name='user_id' ordinal='0' />
+              <column datatype='date' name='signup_date' ordinal='1' />
+              <column datatype='string' name='country' ordinal='2' />
+              <column datatype='integer' name='age' ordinal='3' />
+              <column datatype='string' name='gender' ordinal='4' />
+              <column datatype='string' name='account_type' ordinal='5' />
+              <column datatype='string' name='language' ordinal='6' />
+              <column datatype='string' name='referral_source' ordinal='7' />
+              <column datatype='boolean' name='email_verified' ordinal='8' />
+            </columns>
+          </relation>
+          <relation connection='textscan.0d16jpv0q6qgun15buflx0bm9pl3' name='posts.csv' table='[posts#csv]' type='table'>
+            <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+              <column datatype='integer' name='post_id' ordinal='0' />
+              <column datatype='integer' name='creator_id' ordinal='1' />
+              <column datatype='string' name='category' ordinal='2' />
+              <column datatype='datetime' name='created_time' ordinal='3' />
+              <column datatype='string' name='privacy' ordinal='4' />
+            </columns>
+          </relation>
+          <relation connection='textscan.0d16jpv0q6qgun15buflx0bm9pl3' name='sessions.csv' table='[sessions#csv]' type='table'>
+            <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+              <column datatype='integer' name='session_id' ordinal='0' />
+              <column datatype='integer' name='user_id' ordinal='1' />
+              <column datatype='string' name='device' ordinal='2' />
+              <column datatype='string' name='operating_system' ordinal='3' />
+              <column datatype='datetime' name='login_time' ordinal='4' />
+              <column datatype='datetime' name='logout_time' ordinal='5' />
+              <column datatype='integer' name='session_duration' ordinal='6' />
+            </columns>
+          </relation>
+          <relation connection='textscan.0d16jpv0q6qgun15buflx0bm9pl3' name='events.csv' table='[events#csv]' type='table'>
+            <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+              <column datatype='integer' name='event_id' ordinal='0' />
+              <column datatype='integer' name='session_id' ordinal='1' />
+              <column datatype='string' name='event_type' ordinal='2' />
+              <column datatype='datetime' name='event_time' ordinal='3' />
+            </columns>
+          </relation>
+          <relation connection='textscan.0d16jpv0q6qgun15buflx0bm9pl3' name='ad_clicks.csv' table='[ad_clicks#csv]' type='table'>
+            <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+              <column datatype='integer' name='ad_id' ordinal='0' />
+              <column datatype='integer' name='event_id' ordinal='1' />
+              <column datatype='string' name='ad_category' ordinal='2' />
+              <column datatype='boolean' name='clicked' ordinal='3' />
+            </columns>
+          </relation>
+        </relation>
+        <cols>
+          <map key='[account_type]' value='[users.csv].[account_type]' />
+          <map key='[ad_category]' value='[ad_clicks.csv].[ad_category]' />
+          <map key='[ad_id]' value='[ad_clicks.csv].[ad_id]' />
+          <map key='[age]' value='[users.csv].[age]' />
+          <map key='[category]' value='[posts.csv].[category]' />
+          <map key='[clicked]' value='[ad_clicks.csv].[clicked]' />
+          <map key='[country]' value='[users.csv].[country]' />
+          <map key='[created_time]' value='[posts.csv].[created_time]' />
+          <map key='[creator_id]' value='[posts.csv].[creator_id]' />
+          <map key='[device]' value='[sessions.csv].[device]' />
+          <map key='[email_verified]' value='[users.csv].[email_verified]' />
+          <map key='[event_id (ad_clicks.csv)]' value='[ad_clicks.csv].[event_id]' />
+          <map key='[event_id]' value='[events.csv].[event_id]' />
+          <map key='[event_time]' value='[events.csv].[event_time]' />
+          <map key='[event_type]' value='[events.csv].[event_type]' />
+          <map key='[gender]' value='[users.csv].[gender]' />
+          <map key='[language]' value='[users.csv].[language]' />
+          <map key='[login_time]' value='[sessions.csv].[login_time]' />
+          <map key='[logout_time]' value='[sessions.csv].[logout_time]' />
+          <map key='[operating_system]' value='[sessions.csv].[operating_system]' />
+          <map key='[post_id]' value='[posts.csv].[post_id]' />
+          <map key='[privacy]' value='[posts.csv].[privacy]' />
+          <map key='[referral_source]' value='[users.csv].[referral_source]' />
+          <map key='[session_duration]' value='[sessions.csv].[session_duration]' />
+          <map key='[session_id (events.csv)]' value='[events.csv].[session_id]' />
+          <map key='[session_id]' value='[sessions.csv].[session_id]' />
+          <map key='[signup_date]' value='[users.csv].[signup_date]' />
+          <map key='[user_id (sessions.csv)]' value='[sessions.csv].[user_id]' />
+          <map key='[user_id]' value='[users.csv].[user_id]' />
+        </cols>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[users.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[posts.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[sessions.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[events.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[ad_clicks.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>user_id</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[user_id]</local-name>
+            <parent-name>[users.csv]</parent-name>
+            <remote-alias>user_id</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[users.csv_75CD32CEC94145C2AEDBAC208FDDFB59]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>signup_date</remote-name>
+            <remote-type>133</remote-type>
+            <local-name>[signup_date]</local-name>
+            <parent-name>[users.csv]</parent-name>
+            <remote-alias>signup_date</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[users.csv_75CD32CEC94145C2AEDBAC208FDDFB59]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>country</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[country]</local-name>
+            <parent-name>[users.csv]</parent-name>
+            <remote-alias>country</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <object-id>[users.csv_75CD32CEC94145C2AEDBAC208FDDFB59]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>age</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[age]</local-name>
+            <parent-name>[users.csv]</parent-name>
+            <remote-alias>age</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[users.csv_75CD32CEC94145C2AEDBAC208FDDFB59]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>gender</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[gender]</local-name>
+            <parent-name>[users.csv]</parent-name>
+            <remote-alias>gender</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <object-id>[users.csv_75CD32CEC94145C2AEDBAC208FDDFB59]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>account_type</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[account_type]</local-name>
+            <parent-name>[users.csv]</parent-name>
+            <remote-alias>account_type</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <object-id>[users.csv_75CD32CEC94145C2AEDBAC208FDDFB59]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>language</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[language]</local-name>
+            <parent-name>[users.csv]</parent-name>
+            <remote-alias>language</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <object-id>[users.csv_75CD32CEC94145C2AEDBAC208FDDFB59]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>referral_source</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[referral_source]</local-name>
+            <parent-name>[users.csv]</parent-name>
+            <remote-alias>referral_source</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <object-id>[users.csv_75CD32CEC94145C2AEDBAC208FDDFB59]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>email_verified</remote-name>
+            <remote-type>11</remote-type>
+            <local-name>[email_verified]</local-name>
+            <parent-name>[users.csv]</parent-name>
+            <remote-alias>email_verified</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>boolean</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[users.csv_75CD32CEC94145C2AEDBAC208FDDFB59]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>post_id</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[post_id]</local-name>
+            <parent-name>[posts.csv]</parent-name>
+            <remote-alias>post_id</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[posts.csv_815827A9C2A34C809253275E757CF1BE]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>creator_id</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[creator_id]</local-name>
+            <parent-name>[posts.csv]</parent-name>
+            <remote-alias>creator_id</remote-alias>
+            <ordinal>10</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[posts.csv_815827A9C2A34C809253275E757CF1BE]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>category</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[category]</local-name>
+            <parent-name>[posts.csv]</parent-name>
+            <remote-alias>category</remote-alias>
+            <ordinal>11</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <object-id>[posts.csv_815827A9C2A34C809253275E757CF1BE]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>created_time</remote-name>
+            <remote-type>135</remote-type>
+            <local-name>[created_time]</local-name>
+            <parent-name>[posts.csv]</parent-name>
+            <remote-alias>created_time</remote-alias>
+            <ordinal>12</ordinal>
+            <local-type>datetime</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[posts.csv_815827A9C2A34C809253275E757CF1BE]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>privacy</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[privacy]</local-name>
+            <parent-name>[posts.csv]</parent-name>
+            <remote-alias>privacy</remote-alias>
+            <ordinal>13</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <object-id>[posts.csv_815827A9C2A34C809253275E757CF1BE]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>session_id</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[session_id]</local-name>
+            <parent-name>[sessions.csv]</parent-name>
+            <remote-alias>session_id</remote-alias>
+            <ordinal>14</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[sessions.csv_CC7F29FDEE534340BC07755D2DCE9C75]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>user_id</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[user_id (sessions.csv)]</local-name>
+            <parent-name>[sessions.csv]</parent-name>
+            <remote-alias>user_id</remote-alias>
+            <ordinal>15</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[sessions.csv_CC7F29FDEE534340BC07755D2DCE9C75]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>device</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[device]</local-name>
+            <parent-name>[sessions.csv]</parent-name>
+            <remote-alias>device</remote-alias>
+            <ordinal>16</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <object-id>[sessions.csv_CC7F29FDEE534340BC07755D2DCE9C75]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>operating_system</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[operating_system]</local-name>
+            <parent-name>[sessions.csv]</parent-name>
+            <remote-alias>operating_system</remote-alias>
+            <ordinal>17</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <object-id>[sessions.csv_CC7F29FDEE534340BC07755D2DCE9C75]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>login_time</remote-name>
+            <remote-type>135</remote-type>
+            <local-name>[login_time]</local-name>
+            <parent-name>[sessions.csv]</parent-name>
+            <remote-alias>login_time</remote-alias>
+            <ordinal>18</ordinal>
+            <local-type>datetime</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[sessions.csv_CC7F29FDEE534340BC07755D2DCE9C75]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>logout_time</remote-name>
+            <remote-type>135</remote-type>
+            <local-name>[logout_time]</local-name>
+            <parent-name>[sessions.csv]</parent-name>
+            <remote-alias>logout_time</remote-alias>
+            <ordinal>19</ordinal>
+            <local-type>datetime</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[sessions.csv_CC7F29FDEE534340BC07755D2DCE9C75]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>session_duration</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[session_duration]</local-name>
+            <parent-name>[sessions.csv]</parent-name>
+            <remote-alias>session_duration</remote-alias>
+            <ordinal>20</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[sessions.csv_CC7F29FDEE534340BC07755D2DCE9C75]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>event_id</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[event_id]</local-name>
+            <parent-name>[events.csv]</parent-name>
+            <remote-alias>event_id</remote-alias>
+            <ordinal>21</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[events.csv_18A651C8F9EB4A04B41C123EB5C2076A]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>session_id</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[session_id (events.csv)]</local-name>
+            <parent-name>[events.csv]</parent-name>
+            <remote-alias>session_id</remote-alias>
+            <ordinal>22</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[events.csv_18A651C8F9EB4A04B41C123EB5C2076A]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>event_type</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[event_type]</local-name>
+            <parent-name>[events.csv]</parent-name>
+            <remote-alias>event_type</remote-alias>
+            <ordinal>23</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <object-id>[events.csv_18A651C8F9EB4A04B41C123EB5C2076A]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>event_time</remote-name>
+            <remote-type>135</remote-type>
+            <local-name>[event_time]</local-name>
+            <parent-name>[events.csv]</parent-name>
+            <remote-alias>event_time</remote-alias>
+            <ordinal>24</ordinal>
+            <local-type>datetime</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[events.csv_18A651C8F9EB4A04B41C123EB5C2076A]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>ad_id</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[ad_id]</local-name>
+            <parent-name>[ad_clicks.csv]</parent-name>
+            <remote-alias>ad_id</remote-alias>
+            <ordinal>25</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[ad_clicks.csv_3C18DF56245F480FB3CFBF2ED2F4CB09]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>event_id</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[event_id (ad_clicks.csv)]</local-name>
+            <parent-name>[ad_clicks.csv]</parent-name>
+            <remote-alias>event_id</remote-alias>
+            <ordinal>26</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[ad_clicks.csv_3C18DF56245F480FB3CFBF2ED2F4CB09]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>ad_category</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[ad_category]</local-name>
+            <parent-name>[ad_clicks.csv]</parent-name>
+            <remote-alias>ad_category</remote-alias>
+            <ordinal>27</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <object-id>[ad_clicks.csv_3C18DF56245F480FB3CFBF2ED2F4CB09]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>clicked</remote-name>
+            <remote-type>11</remote-type>
+            <local-name>[clicked]</local-name>
+            <parent-name>[ad_clicks.csv]</parent-name>
+            <remote-alias>clicked</remote-alias>
+            <ordinal>28</ordinal>
+            <local-type>boolean</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[ad_clicks.csv_3C18DF56245F480FB3CFBF2ED2F4CB09]</object-id>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='User Event Count' datatype='integer' name='[Calculation_0115469719822337]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='{ FIXED [user_id] : COUNT([event_id]) }' />
+      </column>
+      <column caption='User Engagement Segment' datatype='string' name='[Calculation_0115469723275267]' role='dimension' type='nominal'>
+        <calculation class='tableau' formula='IF [Calculation_0115469719822337] &gt;= 500 THEN &quot;Power Users&quot;&#13;&#10;&#13;&#10;ELSEIF [Calculation_0115469719822337] &gt;= 150 THEN &quot;Active Users&quot;&#13;&#10;&#13;&#10;ELSE &quot;Casual Users&quot;&#13;&#10;&#13;&#10;END' />
+      </column>
+      <column caption='Session Engagement Segment' datatype='string' name='[Calculation_0115469726949380]' role='measure' type='nominal'>
+        <calculation class='tableau' formula='IF COUNT([session_id]) &gt;= 20 THEN &quot;Frequent Users&quot;&#13;&#10;&#13;&#10;ELSEIF COUNT([session_id]) &gt;= 5 THEN &quot;Returning Users&quot;&#13;&#10;&#13;&#10;ELSE &quot;One-Time Users&quot;&#13;&#10;&#13;&#10;END' />
+      </column>
+      <column aggregation='None' caption='Session Duration (bin)' datatype='integer' name='[Session Duration (bin)]' role='dimension' type='ordinal'>
+        <calculation class='bin' decimals='0' formula='[session_duration]' peg='0' size='5' />
+      </column>
+      <column caption='ad_clicks.csv' datatype='table' name='[__tableau_internal_object_id__].[ad_clicks.csv_3C18DF56245F480FB3CFBF2ED2F4CB09]' role='measure' type='quantitative' />
+      <column caption='events.csv' datatype='table' name='[__tableau_internal_object_id__].[events.csv_18A651C8F9EB4A04B41C123EB5C2076A]' role='measure' type='quantitative' />
+      <column caption='posts.csv' datatype='table' name='[__tableau_internal_object_id__].[posts.csv_815827A9C2A34C809253275E757CF1BE]' role='measure' type='quantitative' />
+      <column caption='sessions.csv' datatype='table' name='[__tableau_internal_object_id__].[sessions.csv_CC7F29FDEE534340BC07755D2DCE9C75]' role='measure' type='quantitative' />
+      <column caption='users.csv' datatype='table' name='[__tableau_internal_object_id__].[users.csv_75CD32CEC94145C2AEDBAC208FDDFB59]' role='measure' type='quantitative' />
+      <column caption='Account Type' datatype='string' name='[account_type]' role='dimension' type='nominal' />
+      <column caption='Ad Category' datatype='string' name='[ad_category]' role='dimension' type='nominal' />
+      <column caption='Ad Id' datatype='integer' name='[ad_id]' role='dimension' type='ordinal' />
+      <column caption='Age' datatype='integer' name='[age]' role='measure' type='quantitative' />
+      <column caption='Category' datatype='string' name='[category]' role='dimension' type='nominal' />
+      <column caption='Clicked' datatype='boolean' name='[clicked]' role='dimension' type='nominal' />
+      <column caption='Country' datatype='string' name='[country]' role='dimension' semantic-role='[Country].[ISO3166_2]' type='nominal' />
+      <column caption='Created Time' datatype='datetime' name='[created_time]' role='dimension' type='ordinal' />
+      <column caption='Creator Id' datatype='integer' name='[creator_id]' role='dimension' type='ordinal' />
+      <column caption='Device' datatype='string' name='[device]' role='dimension' type='nominal' />
+      <column caption='Email Verified' datatype='boolean' name='[email_verified]' role='dimension' type='nominal' />
+      <column caption='Event Id (Ad Clicks.Csv)' datatype='integer' name='[event_id (ad_clicks.csv)]' role='dimension' type='ordinal' />
+      <column caption='Event Id' datatype='integer' name='[event_id]' role='dimension' type='ordinal' />
+      <column caption='Event Time' datatype='datetime' name='[event_time]' role='dimension' type='ordinal' />
+      <column caption='Event Type' datatype='string' name='[event_type]' role='dimension' type='nominal' />
+      <column caption='Gender' datatype='string' name='[gender]' role='dimension' type='nominal' />
+      <column caption='Language' datatype='string' name='[language]' role='dimension' type='nominal' />
+      <column caption='Login Time' datatype='datetime' name='[login_time]' role='dimension' type='ordinal' />
+      <column caption='Logout Time' datatype='datetime' name='[logout_time]' role='dimension' type='ordinal' />
+      <column caption='Operating System' datatype='string' name='[operating_system]' role='dimension' type='nominal' />
+      <column caption='Post Id' datatype='integer' name='[post_id]' role='dimension' type='ordinal' />
+      <column caption='Privacy' datatype='string' name='[privacy]' role='dimension' type='nominal' />
+      <column caption='Referral Source' datatype='string' name='[referral_source]' role='dimension' type='nominal' />
+      <column caption='Session Duration' datatype='integer' name='[session_duration]' role='measure' type='quantitative' />
+      <column caption='Session Id (Events.Csv)' datatype='integer' name='[session_id (events.csv)]' role='dimension' type='ordinal' />
+      <column caption='Session Id' datatype='integer' name='[session_id]' role='dimension' type='ordinal' />
+      <column caption='Signup Date' datatype='date' name='[signup_date]' role='dimension' type='ordinal' />
+      <column caption='User Id (Sessions.Csv)' datatype='integer' name='[user_id (sessions.csv)]' role='dimension' type='ordinal' />
+      <column caption='User Id' datatype='integer' name='[user_id]' role='dimension' type='ordinal' />
+      <column-instance column='[device]' derivation='None' name='[none:device:nk]' pivot='key' type='nominal' />
+      <extract _.fcp.VConnDownstreamExtractsWithWarnings.true...user-specific='false' count='-1' enabled='true' object-id='' units='records'>
+        <connection access_mode='readonly' author-locale='en_US' class='hyper' dbname='C:/Users/Maedo/AppData/Local/Temp/TableauTemp/#TableauTemp_1ryyen8140j7mq18qmdmd17ryacu.hyper' default-settings='hyper' schema='Extract' sslmode='' tablename='Extract' update-time='' username='tableau_internal_user'>
+          <relation type='collection'>
+            <relation name='users.csv_75CD32CEC94145C2AEDBAC208FDDFB59' table='[Extract].[users.csv_75CD32CEC94145C2AEDBAC208FDDFB59]' type='table' />
+            <relation name='posts.csv_815827A9C2A34C809253275E757CF1BE' table='[Extract].[posts.csv_815827A9C2A34C809253275E757CF1BE]' type='table' />
+            <relation name='sessions.csv_CC7F29FDEE534340BC07755D2DCE9C75' table='[Extract].[sessions.csv_CC7F29FDEE534340BC07755D2DCE9C75]' type='table' />
+            <relation name='events.csv_18A651C8F9EB4A04B41C123EB5C2076A' table='[Extract].[events.csv_18A651C8F9EB4A04B41C123EB5C2076A]' type='table' />
+            <relation name='ad_clicks.csv_3C18DF56245F480FB3CFBF2ED2F4CB09' table='[Extract].[ad_clicks.csv_3C18DF56245F480FB3CFBF2ED2F4CB09]' type='table' />
+          </relation>
+          <cols>
+            <map key='[account_type]' value='[users.csv_75CD32CEC94145C2AEDBAC208FDDFB59].[account_type]' />
+            <map key='[ad_category]' value='[ad_clicks.csv_3C18DF56245F480FB3CFBF2ED2F4CB09].[ad_category]' />
+            <map key='[ad_id]' value='[ad_clicks.csv_3C18DF56245F480FB3CFBF2ED2F4CB09].[ad_id]' />
+            <map key='[age]' value='[users.csv_75CD32CEC94145C2AEDBAC208FDDFB59].[age]' />
+            <map key='[category]' value='[posts.csv_815827A9C2A34C809253275E757CF1BE].[category]' />
+            <map key='[clicked]' value='[ad_clicks.csv_3C18DF56245F480FB3CFBF2ED2F4CB09].[clicked]' />
+            <map key='[country]' value='[users.csv_75CD32CEC94145C2AEDBAC208FDDFB59].[country]' />
+            <map key='[created_time]' value='[posts.csv_815827A9C2A34C809253275E757CF1BE].[created_time]' />
+            <map key='[creator_id]' value='[posts.csv_815827A9C2A34C809253275E757CF1BE].[creator_id]' />
+            <map key='[device]' value='[sessions.csv_CC7F29FDEE534340BC07755D2DCE9C75].[device]' />
+            <map key='[email_verified]' value='[users.csv_75CD32CEC94145C2AEDBAC208FDDFB59].[email_verified]' />
+            <map key='[event_id (ad_clicks.csv)]' value='[ad_clicks.csv_3C18DF56245F480FB3CFBF2ED2F4CB09].[event_id]' />
+            <map key='[event_id]' value='[events.csv_18A651C8F9EB4A04B41C123EB5C2076A].[event_id]' />
+            <map key='[event_time]' value='[events.csv_18A651C8F9EB4A04B41C123EB5C2076A].[event_time]' />
+            <map key='[event_type]' value='[events.csv_18A651C8F9EB4A04B41C123EB5C2076A].[event_type]' />
+            <map key='[gender]' value='[users.csv_75CD32CEC94145C2AEDBAC208FDDFB59].[gender]' />
+            <map key='[language]' value='[users.csv_75CD32CEC94145C2AEDBAC208FDDFB59].[language]' />
+            <map key='[login_time]' value='[sessions.csv_CC7F29FDEE534340BC07755D2DCE9C75].[login_time]' />
+            <map key='[logout_time]' value='[sessions.csv_CC7F29FDEE534340BC07755D2DCE9C75].[logout_time]' />
+            <map key='[operating_system]' value='[sessions.csv_CC7F29FDEE534340BC07755D2DCE9C75].[operating_system]' />
+            <map key='[post_id]' value='[posts.csv_815827A9C2A34C809253275E757CF1BE].[post_id]' />
+            <map key='[privacy]' value='[posts.csv_815827A9C2A34C809253275E757CF1BE].[privacy]' />
+            <map key='[referral_source]' value='[users.csv_75CD32CEC94145C2AEDBAC208FDDFB59].[referral_source]' />
+            <map key='[session_duration]' value='[sessions.csv_CC7F29FDEE534340BC07755D2DCE9C75].[session_duration]' />
+            <map key='[session_id (events.csv)]' value='[events.csv_18A651C8F9EB4A04B41C123EB5C2076A].[session_id]' />
+            <map key='[session_id]' value='[sessions.csv_CC7F29FDEE534340BC07755D2DCE9C75].[session_id]' />
+            <map key='[signup_date]' value='[users.csv_75CD32CEC94145C2AEDBAC208FDDFB59].[signup_date]' />
+            <map key='[user_id (sessions.csv)]' value='[sessions.csv_CC7F29FDEE534340BC07755D2DCE9C75].[user_id]' />
+            <map key='[user_id]' value='[users.csv_75CD32CEC94145C2AEDBAC208FDDFB59].[user_id]' />
+          </cols>
+          <metadata-records>
+            <metadata-record class='column'>
+              <remote-name>user_id</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[user_id]</local-name>
+              <parent-name>[users.csv_75CD32CEC94145C2AEDBAC208FDDFB59]</parent-name>
+              <remote-alias>user_id</remote-alias>
+              <ordinal>0</ordinal>
+              <family>users.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>1000</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>signup_date</remote-name>
+              <remote-type>133</remote-type>
+              <local-name>[signup_date]</local-name>
+              <parent-name>[users.csv_75CD32CEC94145C2AEDBAC208FDDFB59]</parent-name>
+              <remote-alias>signup_date</remote-alias>
+              <ordinal>1</ordinal>
+              <family>users.csv</family>
+              <local-type>date</local-type>
+              <aggregation>Year</aggregation>
+              <approx-count>534</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>country</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[country]</local-name>
+              <parent-name>[users.csv_75CD32CEC94145C2AEDBAC208FDDFB59]</parent-name>
+              <remote-alias>country</remote-alias>
+              <ordinal>2</ordinal>
+              <family>users.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>8</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>age</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[age]</local-name>
+              <parent-name>[users.csv_75CD32CEC94145C2AEDBAC208FDDFB59]</parent-name>
+              <remote-alias>age</remote-alias>
+              <ordinal>3</ordinal>
+              <family>users.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>48</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>gender</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[gender]</local-name>
+              <parent-name>[users.csv_75CD32CEC94145C2AEDBAC208FDDFB59]</parent-name>
+              <remote-alias>gender</remote-alias>
+              <ordinal>4</ordinal>
+              <family>users.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>3</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>account_type</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[account_type]</local-name>
+              <parent-name>[users.csv_75CD32CEC94145C2AEDBAC208FDDFB59]</parent-name>
+              <remote-alias>account_type</remote-alias>
+              <ordinal>5</ordinal>
+              <family>users.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>3</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>language</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[language]</local-name>
+              <parent-name>[users.csv_75CD32CEC94145C2AEDBAC208FDDFB59]</parent-name>
+              <remote-alias>language</remote-alias>
+              <ordinal>6</ordinal>
+              <family>users.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>5</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>referral_source</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[referral_source]</local-name>
+              <parent-name>[users.csv_75CD32CEC94145C2AEDBAC208FDDFB59]</parent-name>
+              <remote-alias>referral_source</remote-alias>
+              <ordinal>7</ordinal>
+              <family>users.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>5</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>email_verified</remote-name>
+              <remote-type>11</remote-type>
+              <local-name>[email_verified]</local-name>
+              <parent-name>[users.csv_75CD32CEC94145C2AEDBAC208FDDFB59]</parent-name>
+              <remote-alias>email_verified</remote-alias>
+              <ordinal>8</ordinal>
+              <family>users.csv</family>
+              <local-type>boolean</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>2</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>post_id</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[post_id]</local-name>
+              <parent-name>[posts.csv_815827A9C2A34C809253275E757CF1BE]</parent-name>
+              <remote-alias>post_id</remote-alias>
+              <ordinal>9</ordinal>
+              <family>posts.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>10000</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>creator_id</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[creator_id]</local-name>
+              <parent-name>[posts.csv_815827A9C2A34C809253275E757CF1BE]</parent-name>
+              <remote-alias>creator_id</remote-alias>
+              <ordinal>10</ordinal>
+              <family>posts.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>1418</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>category</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[category]</local-name>
+              <parent-name>[posts.csv_815827A9C2A34C809253275E757CF1BE]</parent-name>
+              <remote-alias>category</remote-alias>
+              <ordinal>11</ordinal>
+              <family>posts.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>10</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>created_time</remote-name>
+              <remote-type>135</remote-type>
+              <local-name>[created_time]</local-name>
+              <parent-name>[posts.csv_815827A9C2A34C809253275E757CF1BE]</parent-name>
+              <remote-alias>created_time</remote-alias>
+              <ordinal>12</ordinal>
+              <family>posts.csv</family>
+              <local-type>datetime</local-type>
+              <aggregation>Year</aggregation>
+              <approx-count>10000</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>privacy</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[privacy]</local-name>
+              <parent-name>[posts.csv_815827A9C2A34C809253275E757CF1BE]</parent-name>
+              <remote-alias>privacy</remote-alias>
+              <ordinal>13</ordinal>
+              <family>posts.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>3</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>session_id</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[session_id]</local-name>
+              <parent-name>[sessions.csv_CC7F29FDEE534340BC07755D2DCE9C75]</parent-name>
+              <remote-alias>session_id</remote-alias>
+              <ordinal>14</ordinal>
+              <family>sessions.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>16099</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>user_id</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[user_id (sessions.csv)]</local-name>
+              <parent-name>[sessions.csv_CC7F29FDEE534340BC07755D2DCE9C75]</parent-name>
+              <remote-alias>user_id</remote-alias>
+              <ordinal>15</ordinal>
+              <family>sessions.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>1432</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>device</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[device]</local-name>
+              <parent-name>[sessions.csv_CC7F29FDEE534340BC07755D2DCE9C75]</parent-name>
+              <remote-alias>device</remote-alias>
+              <ordinal>16</ordinal>
+              <family>sessions.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>5</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>operating_system</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[operating_system]</local-name>
+              <parent-name>[sessions.csv_CC7F29FDEE534340BC07755D2DCE9C75]</parent-name>
+              <remote-alias>operating_system</remote-alias>
+              <ordinal>17</ordinal>
+              <family>sessions.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>4</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>login_time</remote-name>
+              <remote-type>135</remote-type>
+              <local-name>[login_time]</local-name>
+              <parent-name>[sessions.csv_CC7F29FDEE534340BC07755D2DCE9C75]</parent-name>
+              <remote-alias>login_time</remote-alias>
+              <ordinal>18</ordinal>
+              <family>sessions.csv</family>
+              <local-type>datetime</local-type>
+              <aggregation>Year</aggregation>
+              <approx-count>16099</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>logout_time</remote-name>
+              <remote-type>135</remote-type>
+              <local-name>[logout_time]</local-name>
+              <parent-name>[sessions.csv_CC7F29FDEE534340BC07755D2DCE9C75]</parent-name>
+              <remote-alias>logout_time</remote-alias>
+              <ordinal>19</ordinal>
+              <family>sessions.csv</family>
+              <local-type>datetime</local-type>
+              <aggregation>Year</aggregation>
+              <approx-count>16099</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>session_duration</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[session_duration]</local-name>
+              <parent-name>[sessions.csv_CC7F29FDEE534340BC07755D2DCE9C75]</parent-name>
+              <remote-alias>session_duration</remote-alias>
+              <ordinal>20</ordinal>
+              <family>sessions.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>231</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>event_id</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[event_id]</local-name>
+              <parent-name>[events.csv_18A651C8F9EB4A04B41C123EB5C2076A]</parent-name>
+              <remote-alias>event_id</remote-alias>
+              <ordinal>21</ordinal>
+              <family>events.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>202003</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>session_id</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[session_id (events.csv)]</local-name>
+              <parent-name>[events.csv_18A651C8F9EB4A04B41C123EB5C2076A]</parent-name>
+              <remote-alias>session_id</remote-alias>
+              <ordinal>22</ordinal>
+              <family>events.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>58693</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>event_type</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[event_type]</local-name>
+              <parent-name>[events.csv_18A651C8F9EB4A04B41C123EB5C2076A]</parent-name>
+              <remote-alias>event_type</remote-alias>
+              <ordinal>23</ordinal>
+              <family>events.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>10</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>event_time</remote-name>
+              <remote-type>135</remote-type>
+              <local-name>[event_time]</local-name>
+              <parent-name>[events.csv_18A651C8F9EB4A04B41C123EB5C2076A]</parent-name>
+              <remote-alias>event_time</remote-alias>
+              <ordinal>24</ordinal>
+              <family>events.csv</family>
+              <local-type>datetime</local-type>
+              <aggregation>Year</aggregation>
+              <approx-count>202003</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>ad_id</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[ad_id]</local-name>
+              <parent-name>[ad_clicks.csv_3C18DF56245F480FB3CFBF2ED2F4CB09]</parent-name>
+              <remote-alias>ad_id</remote-alias>
+              <ordinal>25</ordinal>
+              <family>ad_clicks.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>25762</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>event_id</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[event_id (ad_clicks.csv)]</local-name>
+              <parent-name>[ad_clicks.csv_3C18DF56245F480FB3CFBF2ED2F4CB09]</parent-name>
+              <remote-alias>event_id</remote-alias>
+              <ordinal>26</ordinal>
+              <family>ad_clicks.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>25762</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>ad_category</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[ad_category]</local-name>
+              <parent-name>[ad_clicks.csv_3C18DF56245F480FB3CFBF2ED2F4CB09]</parent-name>
+              <remote-alias>ad_category</remote-alias>
+              <ordinal>27</ordinal>
+              <family>ad_clicks.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>8</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>clicked</remote-name>
+              <remote-type>11</remote-type>
+              <local-name>[clicked]</local-name>
+              <parent-name>[ad_clicks.csv_3C18DF56245F480FB3CFBF2ED2F4CB09]</parent-name>
+              <remote-alias>clicked</remote-alias>
+              <ordinal>28</ordinal>
+              <family>ad_clicks.csv</family>
+              <local-type>boolean</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>2</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+          </metadata-records>
+        </connection>
+      </extract>
+      <layout dim-ordering='alphabetic' measure-ordering='alphabetic' show-structure='true' />
+      <style>
+        <style-rule element='mark'>
+          <encoding attr='color' field='[none:device:nk]' type='palette'>
+            <map to='#4e79a7'>
+              <bucket>&quot;Android&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Windows&quot;</bucket>
+            </map>
+            <map to='#76b7b2'>
+              <bucket>&quot;Mac&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;iPhone&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;iPad&quot;</bucket>
+            </map>
+          </encoding>
+        </style-rule>
+      </style>
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
+      </semantic-values>
+      <object-graph>
+        <objects>
+          <object caption='ad_clicks.csv' id='ad_clicks.csv_3C18DF56245F480FB3CFBF2ED2F4CB09'>
+            <properties context=''>
+              <relation connection='textscan.0d16jpv0q6qgun15buflx0bm9pl3' name='ad_clicks.csv' table='[ad_clicks#csv]' type='table'>
+                <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+                  <column datatype='integer' name='ad_id' ordinal='0' />
+                  <column datatype='integer' name='event_id' ordinal='1' />
+                  <column datatype='string' name='ad_category' ordinal='2' />
+                  <column datatype='boolean' name='clicked' ordinal='3' />
+                </columns>
+              </relation>
+            </properties>
+            <properties context='extract'>
+              <relation name='ad_clicks.csv_3C18DF56245F480FB3CFBF2ED2F4CB09' table='[Extract].[ad_clicks.csv_3C18DF56245F480FB3CFBF2ED2F4CB09]' type='table' />
+            </properties>
+          </object>
+          <object caption='events.csv' id='events.csv_18A651C8F9EB4A04B41C123EB5C2076A'>
+            <properties context=''>
+              <relation connection='textscan.0d16jpv0q6qgun15buflx0bm9pl3' name='events.csv' table='[events#csv]' type='table'>
+                <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+                  <column datatype='integer' name='event_id' ordinal='0' />
+                  <column datatype='integer' name='session_id' ordinal='1' />
+                  <column datatype='string' name='event_type' ordinal='2' />
+                  <column datatype='datetime' name='event_time' ordinal='3' />
+                </columns>
+              </relation>
+            </properties>
+            <properties context='extract'>
+              <relation name='events.csv_18A651C8F9EB4A04B41C123EB5C2076A' table='[Extract].[events.csv_18A651C8F9EB4A04B41C123EB5C2076A]' type='table' />
+            </properties>
+          </object>
+          <object caption='posts.csv' id='posts.csv_815827A9C2A34C809253275E757CF1BE'>
+            <properties context=''>
+              <relation connection='textscan.0d16jpv0q6qgun15buflx0bm9pl3' name='posts.csv' table='[posts#csv]' type='table'>
+                <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+                  <column datatype='integer' name='post_id' ordinal='0' />
+                  <column datatype='integer' name='creator_id' ordinal='1' />
+                  <column datatype='string' name='category' ordinal='2' />
+                  <column datatype='datetime' name='created_time' ordinal='3' />
+                  <column datatype='string' name='privacy' ordinal='4' />
+                </columns>
+              </relation>
+            </properties>
+            <properties context='extract'>
+              <relation name='posts.csv_815827A9C2A34C809253275E757CF1BE' table='[Extract].[posts.csv_815827A9C2A34C809253275E757CF1BE]' type='table' />
+            </properties>
+          </object>
+          <object caption='sessions.csv' id='sessions.csv_CC7F29FDEE534340BC07755D2DCE9C75'>
+            <properties context=''>
+              <relation connection='textscan.0d16jpv0q6qgun15buflx0bm9pl3' name='sessions.csv' table='[sessions#csv]' type='table'>
+                <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+                  <column datatype='integer' name='session_id' ordinal='0' />
+                  <column datatype='integer' name='user_id' ordinal='1' />
+                  <column datatype='string' name='device' ordinal='2' />
+                  <column datatype='string' name='operating_system' ordinal='3' />
+                  <column datatype='datetime' name='login_time' ordinal='4' />
+                  <column datatype='datetime' name='logout_time' ordinal='5' />
+                  <column datatype='integer' name='session_duration' ordinal='6' />
+                </columns>
+              </relation>
+            </properties>
+            <properties context='extract'>
+              <relation name='sessions.csv_CC7F29FDEE534340BC07755D2DCE9C75' table='[Extract].[sessions.csv_CC7F29FDEE534340BC07755D2DCE9C75]' type='table' />
+            </properties>
+          </object>
+          <object caption='users.csv' id='users.csv_75CD32CEC94145C2AEDBAC208FDDFB59'>
+            <properties context=''>
+              <relation connection='textscan.0d16jpv0q6qgun15buflx0bm9pl3' name='users.csv' table='[users#csv]' type='table'>
+                <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+                  <column datatype='integer' name='user_id' ordinal='0' />
+                  <column datatype='date' name='signup_date' ordinal='1' />
+                  <column datatype='string' name='country' ordinal='2' />
+                  <column datatype='integer' name='age' ordinal='3' />
+                  <column datatype='string' name='gender' ordinal='4' />
+                  <column datatype='string' name='account_type' ordinal='5' />
+                  <column datatype='string' name='language' ordinal='6' />
+                  <column datatype='string' name='referral_source' ordinal='7' />
+                  <column datatype='boolean' name='email_verified' ordinal='8' />
+                </columns>
+              </relation>
+            </properties>
+            <properties context='extract'>
+              <relation name='users.csv_75CD32CEC94145C2AEDBAC208FDDFB59' table='[Extract].[users.csv_75CD32CEC94145C2AEDBAC208FDDFB59]' type='table' />
+            </properties>
+          </object>
+        </objects>
+        <relationships>
+          <relationship>
+            <expression op='='>
+              <expression op='[event_id]' />
+              <expression op='[event_id (ad_clicks.csv)]' />
+            </expression>
+            <first-end-point object-id='events.csv_18A651C8F9EB4A04B41C123EB5C2076A' />
+            <second-end-point object-id='ad_clicks.csv_3C18DF56245F480FB3CFBF2ED2F4CB09' />
+          </relationship>
+          <relationship>
+            <expression op='='>
+              <expression op='[session_id]' />
+              <expression op='[session_id (events.csv)]' />
+            </expression>
+            <first-end-point object-id='sessions.csv_CC7F29FDEE534340BC07755D2DCE9C75' />
+            <second-end-point object-id='events.csv_18A651C8F9EB4A04B41C123EB5C2076A' />
+          </relationship>
+          <relationship>
+            <expression op='='>
+              <expression op='[user_id]' />
+              <expression op='[creator_id]' />
+            </expression>
+            <first-end-point object-id='users.csv_75CD32CEC94145C2AEDBAC208FDDFB59' />
+            <second-end-point object-id='posts.csv_815827A9C2A34C809253275E757CF1BE' />
+          </relationship>
+          <relationship>
+            <expression op='='>
+              <expression op='[user_id]' />
+              <expression op='[user_id (sessions.csv)]' />
+            </expression>
+            <first-end-point object-id='users.csv_75CD32CEC94145C2AEDBAC208FDDFB59' />
+            <second-end-point object-id='sessions.csv_CC7F29FDEE534340BC07755D2DCE9C75' />
+          </relationship>
+        </relationships>
+      </object-graph>
+    </datasource>
+  </datasources>
+  <worksheets>
+    <worksheet name='Average Session Duration by Device'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='users+' name='federated.1gvn5lb1i6urzg18tr2ho01wsn5g' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1gvn5lb1i6urzg18tr2ho01wsn5g'>
+            <column-instance column='[session_duration]' derivation='Avg' name='[avg:session_duration:qk]' pivot='key' type='quantitative' />
+            <column caption='Device' datatype='string' name='[device]' role='dimension' type='nominal' />
+            <column-instance column='[device]' derivation='None' name='[none:device:nk]' pivot='key' type='nominal' />
+            <column caption='Session Duration' datatype='integer' name='[session_duration]' role='measure' type='quantitative' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+        </panes>
+        <rows>[federated.1gvn5lb1i6urzg18tr2ho01wsn5g].[avg:session_duration:qk]</rows>
+        <cols>[federated.1gvn5lb1i6urzg18tr2ho01wsn5g].[none:device:nk]</cols>
+      </table>
+      <simple-id uuid='{B5143CAC-4B0C-4CC3-B36B-137D0E0A9DC3}' />
+    </worksheet>
+    <worksheet name='Country Engagement'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='users+' name='federated.1gvn5lb1i6urzg18tr2ho01wsn5g' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1gvn5lb1i6urzg18tr2ho01wsn5g'>
+            <column-instance column='[user_id]' derivation='Count' name='[cnt:user_id:qk]' pivot='key' type='quantitative' />
+            <column caption='Country' datatype='string' name='[country]' role='dimension' semantic-role='[Country].[ISO3166_2]' type='nominal' />
+            <column-instance column='[country]' derivation='None' name='[none:country:nk]' pivot='key' type='nominal' />
+            <column caption='User Id' datatype='integer' name='[user_id]' role='dimension' type='ordinal' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.1gvn5lb1i6urzg18tr2ho01wsn5g].[none:country:nk]'>
+            <groupfilter function='level-members' level='[none:country:nk]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <shelf-sorts>
+            <shelf-sort-v2 dimension-to-sort='[federated.1gvn5lb1i6urzg18tr2ho01wsn5g].[none:country:nk]' direction='ASC' is-on-innermost-dimension='true' measure-to-sort-by='[federated.1gvn5lb1i6urzg18tr2ho01wsn5g].[cnt:user_id:qk]' shelf='rows' />
+          </shelf-sorts>
+          <slices>
+            <column>[federated.1gvn5lb1i6urzg18tr2ho01wsn5g].[none:country:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <format attr='height' field='[federated.1gvn5lb1i6urzg18tr2ho01wsn5g].[cnt:user_id:qk]' value='39' />
+            <format attr='stroke-size' scope='rows' value='0' />
+            <format attr='line-visibility' scope='rows' value='off' />
+            <format attr='tick-color' scope='rows' value='#00000000' />
+            <format attr='stroke-size' scope='cols' value='0' />
+            <format attr='line-visibility' scope='cols' value='off' />
+            <format attr='tick-color' scope='cols' value='#00000000' />
+          </style-rule>
+          <style-rule element='cell'>
+            <format attr='height' field='[federated.1gvn5lb1i6urzg18tr2ho01wsn5g].[none:country:nk]' value='44' />
+            <format attr='font-size' data-class='subtotal' scope='cols' value='8' />
+          </style-rule>
+          <style-rule element='dropline'>
+            <format attr='stroke-size' scope='rows' value='0' />
+            <format attr='line-visibility' scope='rows' value='off' />
+            <format attr='stroke-size' scope='cols' value='0' />
+            <format attr='line-visibility' scope='cols' value='off' />
+          </style-rule>
+          <style-rule element='refline'>
+            <format attr='stroke-size' scope='rows' value='0' />
+            <format attr='line-visibility' scope='rows' value='off' />
+            <format attr='stroke-size' scope='cols' value='0' />
+            <format attr='line-visibility' scope='cols' value='off' />
+          </style-rule>
+          <style-rule element='gridline'>
+            <format attr='stroke-size' scope='cols' value='0' />
+            <format attr='line-visibility' scope='cols' value='off' />
+          </style-rule>
+          <style-rule element='zeroline'>
+            <format attr='stroke-size' scope='rows' value='0' />
+            <format attr='line-visibility' scope='rows' value='off' />
+            <format attr='stroke-size' scope='cols' value='0' />
+            <format attr='line-visibility' scope='cols' value='off' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Bar' />
+          </pane>
+        </panes>
+        <rows>[federated.1gvn5lb1i6urzg18tr2ho01wsn5g].[none:country:nk]</rows>
+        <cols>[federated.1gvn5lb1i6urzg18tr2ho01wsn5g].[cnt:user_id:qk]</cols>
+      </table>
+      <simple-id uuid='{B71654EA-C8EF-4238-8D0F-B26DA17A6984}' />
+    </worksheet>
+    <worksheet name='Device Engagement'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='users+' name='federated.1gvn5lb1i6urzg18tr2ho01wsn5g' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1gvn5lb1i6urzg18tr2ho01wsn5g'>
+            <column-instance column='[user_id]' derivation='Count' name='[cnt:user_id:qk]' pivot='key' type='quantitative' />
+            <column caption='Device' datatype='string' name='[device]' role='dimension' type='nominal' />
+            <column-instance column='[device]' derivation='None' name='[none:device:nk]' pivot='key' type='nominal' />
+            <column caption='User Id' datatype='integer' name='[user_id]' role='dimension' type='ordinal' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.1gvn5lb1i6urzg18tr2ho01wsn5g].[none:device:nk]'>
+            <groupfilter function='level-members' level='[none:device:nk]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <shelf-sorts>
+            <shelf-sort-v2 dimension-to-sort='[federated.1gvn5lb1i6urzg18tr2ho01wsn5g].[none:device:nk]' direction='DESC' is-on-innermost-dimension='true' measure-to-sort-by='[federated.1gvn5lb1i6urzg18tr2ho01wsn5g].[cnt:user_id:qk]' shelf='columns' />
+          </shelf-sorts>
+          <slices>
+            <column>[federated.1gvn5lb1i6urzg18tr2ho01wsn5g].[none:device:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.1gvn5lb1i6urzg18tr2ho01wsn5g].[none:device:nk]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>[federated.1gvn5lb1i6urzg18tr2ho01wsn5g].[cnt:user_id:qk]</rows>
+        <cols>[federated.1gvn5lb1i6urzg18tr2ho01wsn5g].[none:device:nk]</cols>
+      </table>
+      <simple-id uuid='{87CAC9CC-0676-4335-AB45-BE58E31F5179}' />
+    </worksheet>
+    <worksheet name='Event Distribution'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='users+' name='federated.1gvn5lb1i6urzg18tr2ho01wsn5g' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1gvn5lb1i6urzg18tr2ho01wsn5g'>
+            <column-instance column='[event_id]' derivation='Count' name='[cnt:event_id:qk]' pivot='key' type='quantitative' />
+            <column caption='Event Id' datatype='integer' name='[event_id]' role='dimension' type='ordinal' />
+            <column caption='Event Type' datatype='string' name='[event_type]' role='dimension' type='nominal' />
+            <column-instance column='[event_type]' derivation='None' name='[none:event_type:nk]' pivot='key' type='nominal' />
+          </datasource-dependencies>
+          <shelf-sorts>
+            <shelf-sort-v2 dimension-to-sort='[federated.1gvn5lb1i6urzg18tr2ho01wsn5g].[none:event_type:nk]' direction='DESC' is-on-innermost-dimension='true' measure-to-sort-by='[federated.1gvn5lb1i6urzg18tr2ho01wsn5g].[cnt:event_id:qk]' shelf='columns' />
+          </shelf-sorts>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <format attr='stroke-size' scope='rows' value='0' />
+            <format attr='line-visibility' scope='rows' value='off' />
+            <format attr='tick-color' scope='rows' value='#00000000' />
+            <format attr='stroke-size' scope='cols' value='0' />
+            <format attr='line-visibility' scope='cols' value='off' />
+            <format attr='tick-color' scope='cols' value='#00000000' />
+            <format attr='height' field='[federated.1gvn5lb1i6urzg18tr2ho01wsn5g].[none:event_type:nk]' value='42' />
+          </style-rule>
+          <style-rule element='header'>
+            <format attr='border-width' data-class='total' value='0' />
+            <format attr='border-style' data-class='total' value='none' />
+          </style-rule>
+          <style-rule element='pane'>
+            <format attr='border-width' data-class='total' value='0' />
+            <format attr='border-style' data-class='total' value='none' />
+          </style-rule>
+          <style-rule element='dropline'>
+            <format attr='stroke-size' value='0' />
+            <format attr='line-visibility' value='off' />
+          </style-rule>
+          <style-rule element='refline'>
+            <format attr='stroke-size' value='0' />
+            <format attr='line-visibility' value='off' />
+          </style-rule>
+          <style-rule element='gridline'>
+            <format attr='stroke-size' value='0' />
+            <format attr='line-visibility' scope='rows' value='off' />
+          </style-rule>
+          <style-rule element='zeroline'>
+            <format attr='stroke-size' value='0' />
+            <format attr='line-visibility' value='off' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Bar' />
+            <style>
+              <style-rule element='trendline'>
+                <format attr='stroke-size' value='0' />
+                <format attr='line-visibility' value='off' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.1gvn5lb1i6urzg18tr2ho01wsn5g].[cnt:event_id:qk]</rows>
+        <cols>[federated.1gvn5lb1i6urzg18tr2ho01wsn5g].[none:event_type:nk]</cols>
+      </table>
+      <simple-id uuid='{366F4F4F-DAE9-4CF0-8C05-C62778ECF419}' />
+    </worksheet>
+    <worksheet name='KPI - Ad-Clicks'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run bold='true' fontalignment='1' fontcolor='#818b91'>Total Ad-Clicks</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='users+' name='federated.1gvn5lb1i6urzg18tr2ho01wsn5g' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1gvn5lb1i6urzg18tr2ho01wsn5g'>
+            <column caption='Ad Id' datatype='integer' name='[ad_id]' role='dimension' type='ordinal' />
+            <column-instance column='[ad_id]' derivation='CountD' name='[ctd:ad_id:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='cell'>
+            <format attr='width' value='833' />
+            <format attr='height' value='121' />
+            <format attr='cell-w' value='66' />
+            <format attr='cell-h' value='22' />
+            <format attr='cell' value='22' />
+            <format attr='cell-q' value='110' />
+          </style-rule>
+          <style-rule element='header'>
+            <format attr='border-width' data-class='subtotal' value='0' />
+            <format attr='border-style' data-class='subtotal' value='none' />
+          </style-rule>
+          <style-rule element='pane'>
+            <format attr='border-width' data-class='subtotal' value='0' />
+            <format attr='border-style' data-class='subtotal' value='none' />
+          </style-rule>
+          <style-rule element='table'>
+            <format attr='background-color' value='#ffffff' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <text column='[federated.1gvn5lb1i6urzg18tr2ho01wsn5g].[ctd:ad_id:qk]' />
+            </encodings>
+            <customized-label>
+              <formatted-text>
+                <run fontcolor='#606b76' fontname='Tableau Bold' fontsize='28'>&lt;</run>
+                <run fontcolor='#606b76' fontname='Tableau Bold' fontsize='28'>[federated.1gvn5lb1i6urzg18tr2ho01wsn5g].[ctd:ad_id:qk]</run>
+                <run fontcolor='#606b76' fontname='Tableau Bold' fontsize='28'>&gt;</run>
+              </formatted-text>
+            </customized-label>
+            <style>
+              <style-rule element='cell'>
+                <format attr='text-align' value='center' />
+              </style-rule>
+              <style-rule element='mark'>
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-show' value='true' />
+              </style-rule>
+              <style-rule element='pane'>
+                <format attr='minwidth' value='-1' />
+                <format attr='maxwidth' value='-1' />
+                <format attr='minheight' value='-1' />
+                <format attr='maxheight' value='-1' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+      <simple-id uuid='{07B69EBB-DC27-42CA-8E86-DD7FF7C7934D}' />
+    </worksheet>
+    <worksheet name='KPI - Posts'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run bold='true' fontalignment='1' fontcolor='#818b91'>Total Posts</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='users+' name='federated.1gvn5lb1i6urzg18tr2ho01wsn5g' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1gvn5lb1i6urzg18tr2ho01wsn5g'>
+            <column-instance column='[post_id]' derivation='CountD' name='[ctd:post_id:qk]' pivot='key' type='quantitative' />
+            <column caption='Post Id' datatype='integer' name='[post_id]' role='dimension' type='ordinal' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='cell'>
+            <format attr='width' value='833' />
+            <format attr='height' value='121' />
+            <format attr='cell-w' value='66' />
+            <format attr='cell-h' value='22' />
+            <format attr='cell' value='22' />
+            <format attr='cell-q' value='110' />
+          </style-rule>
+          <style-rule element='header'>
+            <format attr='border-width' data-class='subtotal' value='0' />
+            <format attr='border-style' data-class='subtotal' value='none' />
+          </style-rule>
+          <style-rule element='pane'>
+            <format attr='border-width' data-class='subtotal' value='0' />
+            <format attr='border-style' data-class='subtotal' value='none' />
+          </style-rule>
+          <style-rule element='table'>
+            <format attr='background-color' value='#ffffff' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <text column='[federated.1gvn5lb1i6urzg18tr2ho01wsn5g].[ctd:post_id:qk]' />
+            </encodings>
+            <customized-label>
+              <formatted-text>
+                <run fontcolor='#606b76' fontname='Tableau Bold' fontsize='28'>&lt;</run>
+                <run fontcolor='#606b76' fontname='Tableau Bold' fontsize='28'>[federated.1gvn5lb1i6urzg18tr2ho01wsn5g].[ctd:post_id:qk]</run>
+                <run fontcolor='#606b76' fontname='Tableau Bold' fontsize='28'>&gt;</run>
+              </formatted-text>
+            </customized-label>
+            <style>
+              <style-rule element='cell'>
+                <format attr='text-align' value='center' />
+              </style-rule>
+              <style-rule element='mark'>
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-show' value='true' />
+              </style-rule>
+              <style-rule element='pane'>
+                <format attr='minwidth' value='-1' />
+                <format attr='maxwidth' value='-1' />
+                <format attr='minheight' value='-1' />
+                <format attr='maxheight' value='-1' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+      <simple-id uuid='{41D4CBE0-8B0F-4839-BD10-E9ED84D7EFE8}' />
+    </worksheet>
+    <worksheet name='KPI - Sessions'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run bold='true' fontalignment='1' fontcolor='#818b91'>Total Sessions</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='users+' name='federated.1gvn5lb1i6urzg18tr2ho01wsn5g' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1gvn5lb1i6urzg18tr2ho01wsn5g'>
+            <column-instance column='[session_id]' derivation='CountD' name='[ctd:session_id:qk]' pivot='key' type='quantitative' />
+            <column caption='Session Id' datatype='integer' name='[session_id]' role='dimension' type='ordinal' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='cell'>
+            <format attr='width' value='833' />
+            <format attr='height' value='121' />
+            <format attr='cell-w' value='66' />
+            <format attr='cell-h' value='22' />
+            <format attr='cell' value='22' />
+            <format attr='cell-q' value='110' />
+          </style-rule>
+          <style-rule element='header'>
+            <format attr='border-width' data-class='subtotal' value='0' />
+            <format attr='border-style' data-class='subtotal' value='none' />
+          </style-rule>
+          <style-rule element='pane'>
+            <format attr='border-width' data-class='subtotal' value='0' />
+            <format attr='border-style' data-class='subtotal' value='none' />
+          </style-rule>
+          <style-rule element='table'>
+            <format attr='background-color' value='#ffffff' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <text column='[federated.1gvn5lb1i6urzg18tr2ho01wsn5g].[ctd:session_id:qk]' />
+            </encodings>
+            <customized-label>
+              <formatted-text>
+                <run fontcolor='#606b76' fontname='Tableau Bold' fontsize='28'>&lt;</run>
+                <run fontcolor='#606b76' fontname='Tableau Bold' fontsize='28'>[federated.1gvn5lb1i6urzg18tr2ho01wsn5g].[ctd:session_id:qk]</run>
+                <run fontcolor='#606b76' fontname='Tableau Bold' fontsize='28'>&gt;</run>
+              </formatted-text>
+            </customized-label>
+            <style>
+              <style-rule element='cell'>
+                <format attr='text-align' value='center' />
+              </style-rule>
+              <style-rule element='mark'>
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-show' value='true' />
+              </style-rule>
+              <style-rule element='pane'>
+                <format attr='minwidth' value='-1' />
+                <format attr='maxwidth' value='-1' />
+                <format attr='minheight' value='-1' />
+                <format attr='maxheight' value='-1' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+      <simple-id uuid='{6BBAC2F2-086E-4930-B153-56D8C129FBD5}' />
+    </worksheet>
+    <worksheet name='KPI - Total Events'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run fontalignment='1' fontcolor='#818b91' fontname='Benton Sans Book'>Total Events</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='users+' name='federated.1gvn5lb1i6urzg18tr2ho01wsn5g' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1gvn5lb1i6urzg18tr2ho01wsn5g'>
+            <column-instance column='[event_id]' derivation='Count' name='[cnt:event_id:qk]' pivot='key' type='quantitative' />
+            <column caption='Event Id' datatype='integer' name='[event_id]' role='dimension' type='ordinal' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='cell'>
+            <format attr='width' value='1263' />
+            <format attr='height' value='121' />
+            <format attr='cell-w' value='66' />
+            <format attr='cell-h' value='22' />
+            <format attr='cell' value='22' />
+            <format attr='cell-q' value='110' />
+          </style-rule>
+          <style-rule element='header'>
+            <format attr='border-width' data-class='subtotal' value='0' />
+            <format attr='border-style' data-class='subtotal' value='none' />
+          </style-rule>
+          <style-rule element='pane'>
+            <format attr='border-width' data-class='subtotal' value='0' />
+            <format attr='border-style' data-class='subtotal' value='none' />
+          </style-rule>
+          <style-rule element='table'>
+            <format attr='background-color' value='#ffffff' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <text column='[federated.1gvn5lb1i6urzg18tr2ho01wsn5g].[cnt:event_id:qk]' />
+            </encodings>
+            <customized-label>
+              <formatted-text>
+                <run fontcolor='#606b76' fontname='Tableau Bold' fontsize='28'>&lt;</run>
+                <run fontcolor='#606b76' fontname='Tableau Bold' fontsize='28'>[federated.1gvn5lb1i6urzg18tr2ho01wsn5g].[cnt:event_id:qk]</run>
+                <run fontcolor='#606b76' fontname='Tableau Bold' fontsize='28'>&gt;</run>
+              </formatted-text>
+            </customized-label>
+            <style>
+              <style-rule element='cell'>
+                <format attr='text-align' value='center' />
+              </style-rule>
+              <style-rule element='mark'>
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-show' value='true' />
+              </style-rule>
+              <style-rule element='pane'>
+                <format attr='minwidth' value='-1' />
+                <format attr='maxwidth' value='-1' />
+                <format attr='minheight' value='-1' />
+                <format attr='maxheight' value='-1' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+      <simple-id uuid='{D5761598-5EDC-4EA1-B265-874A34490738}' />
+    </worksheet>
+    <worksheet name='KPI - Total Users'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run bold='true' fontalignment='1' fontcolor='#818b91'>Total Users</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='users+' name='federated.1gvn5lb1i6urzg18tr2ho01wsn5g' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1gvn5lb1i6urzg18tr2ho01wsn5g'>
+            <column-instance column='[user_id]' derivation='CountD' name='[ctd:user_id:qk]' pivot='key' type='quantitative' />
+            <column caption='User Id' datatype='integer' name='[user_id]' role='dimension' type='ordinal' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='cell'>
+            <format attr='width' value='833' />
+            <format attr='height' value='121' />
+            <format attr='cell-w' value='66' />
+            <format attr='cell-h' value='22' />
+            <format attr='cell' value='22' />
+            <format attr='cell-q' value='110' />
+          </style-rule>
+          <style-rule element='header'>
+            <format attr='border-width' data-class='subtotal' value='0' />
+            <format attr='border-style' data-class='subtotal' value='none' />
+          </style-rule>
+          <style-rule element='pane'>
+            <format attr='border-width' data-class='subtotal' value='0' />
+            <format attr='border-style' data-class='subtotal' value='none' />
+          </style-rule>
+          <style-rule element='table'>
+            <format attr='background-color' value='#ffffff' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <text column='[federated.1gvn5lb1i6urzg18tr2ho01wsn5g].[ctd:user_id:qk]' />
+            </encodings>
+            <customized-label>
+              <formatted-text>
+                <run bold='true' fontcolor='#606b76' fontname='Tableau Bold' fontsize='28'>&lt;</run>
+                <run bold='true' fontcolor='#606b76' fontname='Tableau Bold' fontsize='28'>[federated.1gvn5lb1i6urzg18tr2ho01wsn5g].[ctd:user_id:qk]</run>
+                <run bold='true' fontcolor='#606b76' fontname='Tableau Bold' fontsize='28'>&gt;</run>
+              </formatted-text>
+            </customized-label>
+            <style>
+              <style-rule element='cell'>
+                <format attr='text-align' value='center' />
+              </style-rule>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+              </style-rule>
+              <style-rule element='pane'>
+                <format attr='minwidth' value='-1' />
+                <format attr='maxwidth' value='-1' />
+                <format attr='minheight' value='-1' />
+                <format attr='maxheight' value='-1' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+      <simple-id uuid='{7E15CBC5-DD41-471F-9821-E58D8AD9DE5D}' />
+    </worksheet>
+    <worksheet name='Operating System distribution'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='users+' name='federated.1gvn5lb1i6urzg18tr2ho01wsn5g' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1gvn5lb1i6urzg18tr2ho01wsn5g'>
+            <column-instance column='[session_id]' derivation='Count' name='[cnt:session_id:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[operating_system]' derivation='None' name='[none:operating_system:nk]' pivot='key' type='nominal' />
+            <column caption='Operating System' datatype='string' name='[operating_system]' role='dimension' type='nominal' />
+            <column caption='Session Id' datatype='integer' name='[session_id]' role='dimension' type='ordinal' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.1gvn5lb1i6urzg18tr2ho01wsn5g].[none:operating_system:nk]'>
+            <groupfilter function='level-members' level='[none:operating_system:nk]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <slices>
+            <column>[federated.1gvn5lb1i6urzg18tr2ho01wsn5g].[none:operating_system:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Bar' />
+          </pane>
+        </panes>
+        <rows>[federated.1gvn5lb1i6urzg18tr2ho01wsn5g].[cnt:session_id:qk]</rows>
+        <cols>[federated.1gvn5lb1i6urzg18tr2ho01wsn5g].[none:operating_system:nk]</cols>
+      </table>
+      <simple-id uuid='{21B3562D-D282-49E0-932B-1ADC9339ADD2}' />
+    </worksheet>
+    <worksheet name='Session Duration Distribution'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='users+' name='federated.1gvn5lb1i6urzg18tr2ho01wsn5g' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1gvn5lb1i6urzg18tr2ho01wsn5g'>
+            <column aggregation='None' caption='Session Duration (bin)' datatype='integer' name='[Session Duration (bin)]' role='dimension' type='ordinal'>
+              <calculation class='bin' decimals='0' formula='[session_duration]' peg='0' size='5' />
+            </column>
+            <column-instance column='[session_id]' derivation='Count' name='[cnt:session_id:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Session Duration (bin)]' derivation='None' name='[none:Session Duration (bin):ok]' pivot='key' type='ordinal' />
+            <column caption='Session Duration' datatype='integer' name='[session_duration]' role='measure' type='quantitative' />
+            <column caption='Session Id' datatype='integer' name='[session_id]' role='dimension' type='ordinal' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <format attr='stroke-size' scope='rows' value='0' />
+            <format attr='line-visibility' scope='rows' value='off' />
+            <format attr='tick-color' scope='rows' value='#00000000' />
+            <format attr='tick-color' scope='cols' value='#00000000' />
+            <format attr='stroke-size' scope='cols' value='0' />
+            <format attr='line-visibility' scope='cols' value='off' />
+          </style-rule>
+          <style-rule element='dropline'>
+            <format attr='stroke-size' scope='rows' value='0' />
+            <format attr='line-visibility' scope='rows' value='off' />
+            <format attr='stroke-size' scope='cols' value='0' />
+            <format attr='line-visibility' scope='cols' value='off' />
+          </style-rule>
+          <style-rule element='refline'>
+            <format attr='stroke-size' scope='rows' value='0' />
+            <format attr='line-visibility' scope='rows' value='off' />
+            <format attr='stroke-size' scope='cols' value='0' />
+            <format attr='line-visibility' scope='cols' value='off' />
+          </style-rule>
+          <style-rule element='gridline'>
+            <format attr='stroke-size' scope='rows' value='0' />
+            <format attr='line-visibility' scope='rows' value='off' />
+          </style-rule>
+          <style-rule element='zeroline'>
+            <format attr='stroke-size' scope='rows' value='0' />
+            <format attr='line-visibility' scope='rows' value='off' />
+            <format attr='stroke-size' scope='cols' value='0' />
+            <format attr='line-visibility' scope='cols' value='off' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Bar' />
+          </pane>
+        </panes>
+        <rows>[federated.1gvn5lb1i6urzg18tr2ho01wsn5g].[cnt:session_id:qk]</rows>
+        <cols>[federated.1gvn5lb1i6urzg18tr2ho01wsn5g].[none:Session Duration (bin):ok]</cols>
+        <show-full-range>
+          <column>[federated.1gvn5lb1i6urzg18tr2ho01wsn5g].[Session Duration (bin)]</column>
+        </show-full-range>
+      </table>
+      <simple-id uuid='{0A80BB40-5930-4F09-9E93-3BC1A98101BF}' />
+    </worksheet>
+    <worksheet name='Sheet 15'>
+      <table>
+        <view>
+          <datasources />
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+      <simple-id uuid='{C34461A5-4F0E-4DBB-8C95-08B233E2A7A4}' />
+    </worksheet>
+    <worksheet name='Sheet 16'>
+      <table>
+        <view>
+          <datasources />
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+      <simple-id uuid='{22A10037-9619-4707-ABB2-1228F48BE745}' />
+    </worksheet>
+    <worksheet name='Sheet 17'>
+      <table>
+        <view>
+          <datasources />
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+      <simple-id uuid='{FB1B5726-0E75-4039-A9A0-6FBC125E89CE}' />
+    </worksheet>
+    <worksheet name='Sheet 18'>
+      <table>
+        <view>
+          <datasources />
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+      <simple-id uuid='{AFB75B37-FB78-4CEA-99B6-1A29A93677E8}' />
+    </worksheet>
+    <worksheet name='Sheet 19'>
+      <table>
+        <view>
+          <datasources />
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+      <simple-id uuid='{40B3BE2A-4537-4152-9B43-47F1D2169601}' />
+    </worksheet>
+    <worksheet name='Sheet 20'>
+      <table>
+        <view>
+          <datasources />
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+      <simple-id uuid='{B4702EEB-9B61-474C-879C-580F688F6C93}' />
+    </worksheet>
+    <worksheet name='Sheet 21'>
+      <table>
+        <view>
+          <datasources />
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+      <simple-id uuid='{1D6FA648-1F83-470A-971B-C35CCF81F9C9}' />
+    </worksheet>
+    <worksheet name='Sheet 22'>
+      <table>
+        <view>
+          <datasources />
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+      <simple-id uuid='{662D09FA-725C-4B0B-8CEA-4516BD684D38}' />
+    </worksheet>
+    <worksheet name='Sheet 23'>
+      <table>
+        <view>
+          <datasources />
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+      <simple-id uuid='{40128372-68F0-4D04-803D-75725BE71C2F}' />
+    </worksheet>
+    <worksheet name='Sheet 24'>
+      <table>
+        <view>
+          <datasources />
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+      <simple-id uuid='{C627A5CF-0272-4CD1-A38D-4DAC37E5E4B1}' />
+    </worksheet>
+    <worksheet name='Sheet 25'>
+      <table>
+        <view>
+          <datasources />
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+      <simple-id uuid='{44C57949-B73D-411D-9222-2A493BECD4AA}' />
+    </worksheet>
+    <worksheet name='Sheet 26'>
+      <table>
+        <view>
+          <datasources />
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+      <simple-id uuid='{873320ED-BBD3-4DC4-953E-C58346A371BF}' />
+    </worksheet>
+    <worksheet name='Sheet 27'>
+      <table>
+        <view>
+          <datasources />
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+      <simple-id uuid='{874E705A-F216-4C99-A9C8-050AD7C30633}' />
+    </worksheet>
+    <worksheet name='User Engagement Segments'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='users+' name='federated.1gvn5lb1i6urzg18tr2ho01wsn5g' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1gvn5lb1i6urzg18tr2ho01wsn5g'>
+            <column caption='User Event Count' datatype='integer' name='[Calculation_0115469719822337]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='{ FIXED [user_id] : COUNT([event_id]) }' />
+            </column>
+            <column caption='User Engagement Segment' datatype='string' name='[Calculation_0115469723275267]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='IF [Calculation_0115469719822337] &gt;= 500 THEN &quot;Power Users&quot;&#13;&#10;&#13;&#10;ELSEIF [Calculation_0115469719822337] &gt;= 150 THEN &quot;Active Users&quot;&#13;&#10;&#13;&#10;ELSE &quot;Casual Users&quot;&#13;&#10;&#13;&#10;END' />
+            </column>
+            <column-instance column='[user_id]' derivation='Count' name='[cnt:user_id:qk]' pivot='key' type='quantitative' />
+            <column caption='Event Id' datatype='integer' name='[event_id]' role='dimension' type='ordinal' />
+            <column-instance column='[Calculation_0115469723275267]' derivation='None' name='[none:Calculation_0115469723275267:nk]' pivot='key' type='nominal' />
+            <column caption='User Id' datatype='integer' name='[user_id]' role='dimension' type='ordinal' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <format attr='stroke-size' value='0' />
+            <format attr='line-visibility' value='off' />
+            <format attr='tick-color' value='#00000000' />
+          </style-rule>
+          <style-rule element='cell'>
+            <format attr='width' field='[federated.1gvn5lb1i6urzg18tr2ho01wsn5g].[none:Calculation_0115469723275267:nk]' value='89' />
+          </style-rule>
+          <style-rule element='header'>
+            <format attr='border-width' data-class='total' value='0' />
+            <format attr='border-style' data-class='total' value='none' />
+            <format attr='band-color' scope='cols' value='#00000000' />
+          </style-rule>
+          <style-rule element='pane'>
+            <format attr='border-width' data-class='total' value='0' />
+            <format attr='border-style' data-class='total' value='none' />
+            <format attr='band-color' scope='cols' value='#00000000' />
+          </style-rule>
+          <style-rule element='table'>
+            <format attr='band-size' scope='cols' value='1' />
+          </style-rule>
+          <style-rule element='dropline'>
+            <format attr='stroke-size' value='0' />
+            <format attr='line-visibility' value='off' />
+          </style-rule>
+          <style-rule element='refline'>
+            <format attr='stroke-size' value='0' />
+            <format attr='line-visibility' value='off' />
+          </style-rule>
+          <style-rule element='zeroline'>
+            <format attr='stroke-size' value='0' />
+            <format attr='line-visibility' value='off' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Bar' />
+            <style>
+              <style-rule element='pane'>
+                <format attr='minwidth' value='-1' />
+                <format attr='maxwidth' value='-1' />
+              </style-rule>
+              <style-rule element='trendline'>
+                <format attr='stroke-size' value='0' />
+                <format attr='line-visibility' value='off' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.1gvn5lb1i6urzg18tr2ho01wsn5g].[cnt:user_id:qk]</rows>
+        <cols>[federated.1gvn5lb1i6urzg18tr2ho01wsn5g].[none:Calculation_0115469723275267:nk]</cols>
+      </table>
+      <simple-id uuid='{A68C8BF1-8085-40D3-BA07-AAC73255EDD1}' />
+    </worksheet>
+    <worksheet name='User Growth Over Time'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='users+' name='federated.1gvn5lb1i6urzg18tr2ho01wsn5g' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1gvn5lb1i6urzg18tr2ho01wsn5g'>
+            <column-instance column='[user_id]' derivation='Count' name='[cnt:user_id:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[signup_date]' derivation='Month' name='[mn:signup_date:ok]' pivot='key' type='ordinal' />
+            <column caption='Signup Date' datatype='date' name='[signup_date]' role='dimension' type='ordinal' />
+            <column caption='User Id' datatype='integer' name='[user_id]' role='dimension' type='ordinal' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <format attr='stroke-color' value='#edc948' />
+            <format attr='line-pattern-only' value='solid' />
+            <format attr='stroke-size' value='0' />
+            <format attr='line-visibility' value='off' />
+            <format attr='tick-color' value='#00000000' />
+          </style-rule>
+          <style-rule element='header'>
+            <format attr='border-width' data-class='total' value='0' />
+            <format attr='border-style' data-class='total' value='none' />
+          </style-rule>
+          <style-rule element='pane'>
+            <format attr='border-width' data-class='total' value='0' />
+            <format attr='border-style' data-class='total' value='none' />
+          </style-rule>
+          <style-rule element='dropline'>
+            <format attr='stroke-size' value='0' />
+            <format attr='line-visibility' value='off' />
+          </style-rule>
+          <style-rule element='refline'>
+            <format attr='stroke-size' value='0' />
+            <format attr='line-visibility' value='off' />
+          </style-rule>
+          <style-rule element='gridline'>
+            <format attr='stroke-size' scope='rows' value='0' />
+            <format attr='line-visibility' scope='rows' value='off' />
+          </style-rule>
+          <style-rule element='zeroline'>
+            <format attr='line-pattern-only' scope='rows' value='solid' />
+            <format attr='stroke-size' value='0' />
+            <format attr='line-visibility' value='off' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <style>
+              <style-rule element='trendline'>
+                <format attr='stroke-size' value='0' />
+                <format attr='line-visibility' value='off' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.1gvn5lb1i6urzg18tr2ho01wsn5g].[cnt:user_id:qk]</rows>
+        <cols>[federated.1gvn5lb1i6urzg18tr2ho01wsn5g].[mn:signup_date:ok]</cols>
+      </table>
+      <simple-id uuid='{3FFD3680-5312-418E-ADAF-46990A56D843}' />
+    </worksheet>
+    <worksheet name='User Session Frequency'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='users+' name='federated.1gvn5lb1i6urzg18tr2ho01wsn5g' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1gvn5lb1i6urzg18tr2ho01wsn5g'>
+            <column-instance column='[session_id]' derivation='Count' name='[cnt:session_id:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[user_id]' derivation='None' name='[none:user_id:ok]' pivot='key' type='ordinal' />
+            <column caption='Session Id' datatype='integer' name='[session_id]' role='dimension' type='ordinal' />
+            <column caption='User Id' datatype='integer' name='[user_id]' role='dimension' type='ordinal' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+        </panes>
+        <rows>[federated.1gvn5lb1i6urzg18tr2ho01wsn5g].[none:user_id:ok]</rows>
+        <cols>[federated.1gvn5lb1i6urzg18tr2ho01wsn5g].[cnt:session_id:qk]</cols>
+      </table>
+      <simple-id uuid='{6AFEDD3B-65B1-464B-BEAB-84022B8F6EE4}' />
+    </worksheet>
+  </worksheets>
+  <dashboards>
+    <dashboard enable-sort-zone-taborder='true' name='Meta Product Analytics Executive Dashboard'>
+      <style />
+      <size sizing-mode='automatic' />
+      <datasources>
+        <datasource caption='users+' name='federated.1gvn5lb1i6urzg18tr2ho01wsn5g' />
+      </datasources>
+      <datasource-dependencies datasource='federated.1gvn5lb1i6urzg18tr2ho01wsn5g'>
+        <column caption='Country' datatype='string' name='[country]' role='dimension' semantic-role='[Country].[ISO3166_2]' type='nominal' />
+        <column caption='Device' datatype='string' name='[device]' role='dimension' type='nominal' />
+        <column-instance column='[country]' derivation='None' name='[none:country:nk]' pivot='key' type='nominal' />
+        <column-instance column='[device]' derivation='None' name='[none:device:nk]' pivot='key' type='nominal' />
+        <column-instance column='[operating_system]' derivation='None' name='[none:operating_system:nk]' pivot='key' type='nominal' />
+        <column caption='Operating System' datatype='string' name='[operating_system]' role='dimension' type='nominal' />
+      </datasource-dependencies>
+      <zones>
+        <zone h='100000' id='4' type-v2='layout-basic' w='100000' x='0' y='0'>
+          <zone h='86100' id='29' param='horz' type-v2='layout-flow' w='99064' x='468' y='8730'>
+            <zone h='86100' id='27' type-v2='layout-basic' w='90048' x='468' y='8730'>
+              <zone h='66240' id='17' param='horz' type-v2='layout-flow' w='90048' x='468' y='8730'>
+                <zone h='66240' id='15' type-v2='layout-basic' w='90048' x='468' y='8730'>
+                  <zone h='21117' id='3' param='horz' type-v2='layout-flow' w='15030' x='468' y='8730'>
+                    <zone h='21009' id='5' name='KPI - Total Users' w='15030' x='468' y='8730'>
+                      <layout-cache cell-count-w='1' fixed-size-h='171' non-cell-size-w='1' type-h='fixed' type-w='cell' />
+                      <zone-style>
+                        <format attr='border-color' value='#000000' />
+                        <format attr='border-style' value='none' />
+                        <format attr='border-width' value='0' />
+                        <format attr='margin' value='4' />
+                      </zone-style>
+                    </zone>
+                  </zone>
+                  <zone h='21117' id='6' name='KPI - Sessions' w='20633' x='15498' y='8730'>
+                    <zone-style>
+                      <format attr='border-color' value='#000000' />
+                      <format attr='border-style' value='none' />
+                      <format attr='border-width' value='0' />
+                      <format attr='margin' value='4' />
+                    </zone-style>
+                  </zone>
+                  <zone h='21117' id='7' name='KPI - Posts' w='21198' x='36131' y='8730'>
+                    <zone-style>
+                      <format attr='border-color' value='#000000' />
+                      <format attr='border-style' value='none' />
+                      <format attr='border-width' value='0' />
+                      <format attr='margin' value='4' />
+                    </zone-style>
+                  </zone>
+                  <zone h='25264' id='9' param='horz' type-v2='layout-flow' w='29840' x='468' y='29847'>
+                    <zone h='25264' id='10' name='Event Distribution' w='29840' x='468' y='29847'>
+                      <layout-cache cell-count-w='10' minheight='212' non-cell-size-w='78' type-h='scalable' type-w='cell' />
+                      <zone-style>
+                        <format attr='border-color' value='#000000' />
+                        <format attr='border-style' value='none' />
+                        <format attr='border-width' value='0' />
+                        <format attr='margin' value='4' />
+                      </zone-style>
+                    </zone>
+                  </zone>
+                  <zone h='25264' id='11' name='User Growth Over Time' w='37675' x='30308' y='29847'>
+                    <zone-style>
+                      <format attr='border-color' value='#000000' />
+                      <format attr='border-style' value='none' />
+                      <format attr='border-width' value='0' />
+                      <format attr='margin' value='4' />
+                    </zone-style>
+                  </zone>
+                  <zone h='19859' id='12' param='horz' type-v2='layout-flow' w='29840' x='468' y='55111'>
+                    <zone h='19859' id='13' name='Country Engagement' w='29840' x='468' y='55111'>
+                      <layout-cache minwidth='180' type-h='fixed' type-w='scalable' />
+                      <zone-style>
+                        <format attr='border-color' value='#000000' />
+                        <format attr='border-style' value='none' />
+                        <format attr='border-width' value='0' />
+                        <format attr='margin' value='4' />
+                      </zone-style>
+                    </zone>
+                  </zone>
+                  <zone h='19859' id='14' name='Device Engagement' w='37675' x='30308' y='55111'>
+                    <zone-style>
+                      <format attr='border-color' value='#000000' />
+                      <format attr='border-style' value='none' />
+                      <format attr='border-width' value='0' />
+                      <format attr='margin' value='4' />
+                    </zone-style>
+                  </zone>
+                  <zone h='21117' id='22' name='KPI - Total Events' w='17579' x='57329' y='8730'>
+                    <zone-style>
+                      <format attr='border-color' value='#000000' />
+                      <format attr='border-style' value='none' />
+                      <format attr='border-width' value='0' />
+                      <format attr='margin' value='4' />
+                    </zone-style>
+                  </zone>
+                  <zone h='21117' id='24' name='KPI - Ad-Clicks' w='15608' x='74908' y='8730'>
+                    <zone-style>
+                      <format attr='border-color' value='#000000' />
+                      <format attr='border-style' value='none' />
+                      <format attr='border-width' value='0' />
+                      <format attr='margin' value='4' />
+                    </zone-style>
+                  </zone>
+                  <zone h='45123' id='25' name='User Engagement Segments' w='22533' x='67983' y='29847'>
+                    <zone-style>
+                      <format attr='border-color' value='#000000' />
+                      <format attr='border-style' value='none' />
+                      <format attr='border-width' value='0' />
+                      <format attr='margin' value='4' />
+                    </zone-style>
+                  </zone>
+                </zone>
+              </zone>
+              <zone h='19860' id='19' param='horz' type-v2='layout-flow' w='43689' x='468' y='74970'>
+                <zone h='19860' id='20' name='Operating System distribution' w='43689' x='468' y='74970'>
+                  <layout-cache cell-count-w='4' minheight='195' non-cell-size-w='60' type-h='scalable' type-w='cell' />
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                  </zone-style>
+                </zone>
+              </zone>
+              <zone h='19860' id='23' name='Average Session Duration by Device' w='46359' x='44157' y='74970'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+            </zone>
+            <zone fixed-size='154' h='86100' id='28' is-fixed='true' param='vert' type-v2='layout-flow' w='9016' x='90516' y='8730'>
+              <zone h='7160' id='30' mode='dropdown' name='Country Engagement' param='[federated.1gvn5lb1i6urzg18tr2ho01wsn5g].[none:country:nk]' type-v2='filter' values='database' w='9016' x='90516' y='8730'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='7160' id='31' mode='dropdown' name='Device Engagement' param='[federated.1gvn5lb1i6urzg18tr2ho01wsn5g].[none:device:nk]' type-v2='filter' values='database' w='9016' x='90516' y='15890'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='7160' id='32' mode='dropdown' name='Operating System distribution' param='[federated.1gvn5lb1i6urzg18tr2ho01wsn5g].[none:operating_system:nk]' type-v2='filter' values='database' w='9016' x='90516' y='23050'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+            </zone>
+          </zone>
+          <zone forceUpdate='true' h='7791' id='33' type-v2='text' w='99064' x='468' y='939'>
+            <formatted-text>
+              <run fontcolor='#000000' fontname='Tableau Bold' fontsize='12'>Meta Product Analytics Executive Dashboard</run>
+              <run>Æ&#10;</run>
+              <run fontcolor='#000000' fontname='Tableau Semibold' fontsize='11'>Executive Overview of User Engagement &amp; Product Performance</run>
+            </formatted-text>
+            <zone-style>
+              <format attr='border-color' value='#000000' />
+              <format attr='border-style' value='none' />
+              <format attr='border-width' value='0' />
+              <format attr='margin' value='4' />
+            </zone-style>
+          </zone>
+          <zone h='4231' id='34' type-v2='text' w='99064' x='468' y='94830'>
+            <formatted-text>
+              <run bold='true' fontcolor='#000000' fontname='Tableau Medium' fontsize='11'>Tools:</run>
+              <run fontcolor='#000000' fontname='Tableau Medium' fontsize='11'> Tableau • SQL • Python • MySQL</run>
+            </formatted-text>
+            <zone-style>
+              <format attr='border-color' value='#000000' />
+              <format attr='border-style' value='none' />
+              <format attr='border-width' value='0' />
+              <format attr='margin' value='4' />
+            </zone-style>
+          </zone>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='none' />
+            <format attr='border-width' value='0' />
+            <format attr='margin' value='8' />
+          </zone-style>
+        </zone>
+      </zones>
+      <devicelayouts>
+        <devicelayout auto-generated='true' name='Phone'>
+          <size maxheight='2500' minheight='2500' sizing-mode='vscroll' />
+          <zones>
+            <zone h='100000' id='40' type-v2='layout-basic' w='100000' x='0' y='0'>
+              <zone h='98120' id='39' param='vert' type-v2='layout-flow' w='99006' x='497' y='940'>
+                <zone forceUpdate='true' h='7791' id='33' type-v2='text' w='99006' x='497' y='940'>
+                  <formatted-text>
+                    <run fontcolor='#000000' fontname='Tableau Bold' fontsize='12'>Meta Product Analytics Executive Dashboard</run>
+                    <run>Æ&#10;</run>
+                    <run fontcolor='#000000' fontname='Tableau Semibold' fontsize='11'>Executive Overview of User Engagement &amp; Product Performance</run>
+                  </formatted-text>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='160' h='21034' id='5' is-fixed='true' name='KPI - Total Users' w='14933' x='497' y='8731'>
+                  <layout-cache cell-count-w='1' fixed-size-h='171' type-h='fixed' type-w='cell' />
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='164' h='21469' id='6' is-fixed='true' name='KPI - Sessions' w='20492' x='15430' y='8731'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='164' h='21469' id='7' is-fixed='true' name='KPI - Posts' w='21054' x='35922' y='8731'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='164' h='21469' id='22' is-fixed='true' name='KPI - Total Events' w='17459' x='56976' y='8731'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='164' h='21469' id='24' is-fixed='true' name='KPI - Ad-Clicks' w='15497' x='74435' y='8731'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='197' h='25684' id='10' is-fixed='true' name='Event Distribution' w='29642' x='497' y='30200'>
+                  <layout-cache cell-count-w='10' minheight='212' non-cell-size-w='78' type-h='scalable' type-w='cell' />
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='197' h='25684' id='11' is-fixed='true' name='User Growth Over Time' w='37418' x='30139' y='30200'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='45874' id='25' is-fixed='true' name='User Engagement Segments' w='22375' x='67557' y='30200'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone h='7168' id='30' mode='dropdown' name='Country Engagement' param='[federated.1gvn5lb1i6urzg18tr2ho01wsn5g].[none:country:nk]' type-v2='filter' values='database' w='9571' x='89932' y='8731'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='154' h='20190' id='13' is-fixed='true' name='Country Engagement' w='29642' x='497' y='55884'>
+                  <layout-cache minwidth='180' type-h='fixed' type-w='scalable' />
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone h='7168' id='31' mode='dropdown' name='Device Engagement' param='[federated.1gvn5lb1i6urzg18tr2ho01wsn5g].[none:device:nk]' type-v2='filter' values='database' w='9571' x='89932' y='15899'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='154' h='20190' id='14' is-fixed='true' name='Device Engagement' w='37418' x='30139' y='55884'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone h='7168' id='32' mode='dropdown' name='Operating System distribution' param='[federated.1gvn5lb1i6urzg18tr2ho01wsn5g].[none:operating_system:nk]' type-v2='filter' values='database' w='9571' x='89932' y='23067'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='142' h='18756' id='20' is-fixed='true' name='Operating System distribution' w='43396' x='497' y='76074'>
+                  <layout-cache cell-count-w='4' minheight='195' non-cell-size-w='60' type-h='scalable' type-w='cell' />
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='142' h='18756' id='23' is-fixed='true' name='Average Session Duration by Device' w='46039' x='43893' y='76074'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone h='4230' id='34' type-v2='text' w='99006' x='497' y='94830'>
+                  <formatted-text>
+                    <run bold='true' fontcolor='#000000' fontname='Tableau Medium' fontsize='11'>Tools:</run>
+                    <run fontcolor='#000000' fontname='Tableau Medium' fontsize='11'> Tableau • SQL • Python • MySQL</run>
+                  </formatted-text>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+              </zone>
+              <zone-style>
+                <format attr='border-color' value='#000000' />
+                <format attr='border-style' value='none' />
+                <format attr='border-width' value='0' />
+                <format attr='margin' value='8' />
+              </zone-style>
+            </zone>
+          </zones>
+        </devicelayout>
+      </devicelayouts>
+      <simple-id uuid='{2F65FE87-905B-43AF-8770-1D1FC2942366}' />
+    </dashboard>
+  </dashboards>
+  <windows pres-mode='true' saved-dpi-scale-factor='1.25' source-height='37'>
+    <window class='worksheet' name='KPI - Total Users'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <zoom type='fit-height' />
+      </viewpoint>
+      <simple-id uuid='{81524E66-CC88-4FD3-BC8D-04487E262851}' />
+    </window>
+    <window class='worksheet' name='KPI - Sessions'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <zoom type='entire-view' />
+      </viewpoint>
+      <simple-id uuid='{30AF06F0-8715-46E2-AA76-A79315D4ECFA}' />
+    </window>
+    <window class='worksheet' name='KPI - Posts'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <zoom type='entire-view' />
+      </viewpoint>
+      <simple-id uuid='{84ECE3E3-A58D-4599-BB71-D3E06E454F12}' />
+    </window>
+    <window class='worksheet' name='KPI - Total Events'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <zoom type='entire-view' />
+      </viewpoint>
+      <simple-id uuid='{38095FCF-1BCC-4953-B43D-5B95E321690A}' />
+    </window>
+    <window class='worksheet' name='KPI - Ad-Clicks'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{592DD4A2-1C77-4DB6-9FD0-F4B103499A46}' />
+    </window>
+    <window class='worksheet' name='Event Distribution'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{3315C8F9-EB19-491A-9830-3CE480142185}' />
+    </window>
+    <window class='worksheet' name='Session Duration Distribution'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{83C4FEEF-E859-46AB-BFBA-26B06C11F61D}' />
+    </window>
+    <window class='worksheet' name='Country Engagement'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card param='[federated.1gvn5lb1i6urzg18tr2ho01wsn5g].[none:country:nk]' type='filter' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{16A50016-BAF2-4A1E-8A4B-A89C7CCD257D}' />
+    </window>
+    <window class='worksheet' name='User Engagement Segments'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{E20400B2-880E-4B9A-BAAE-8577A8CE014E}' />
+    </window>
+    <window class='worksheet' name='Device Engagement'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.1gvn5lb1i6urzg18tr2ho01wsn5g].[none:device:nk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{D8357C35-3055-44B4-A159-F335F9F80211}' />
+    </window>
+    <window class='worksheet' name='User Growth Over Time'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{62F211F3-619A-4319-97F6-2E948B394FBF}' />
+    </window>
+    <window class='worksheet' name='User Session Frequency'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{EA9F81BD-876A-49EB-ABE4-F2CDFF5A04FE}' />
+    </window>
+    <window class='worksheet' name='Operating System distribution'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{C87E127F-1F3E-4A7A-9BD2-E6670A051412}' />
+    </window>
+    <window class='worksheet' name='Average Session Duration by Device'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{CAB5725A-E319-4568-9C60-5E8EA1E9147A}' />
+    </window>
+    <window class='dashboard' maximized='true' name='Meta Product Analytics Executive Dashboard'>
+      <viewpoints>
+        <viewpoint name='Average Session Duration by Device'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='Country Engagement'>
+          <zoom type='fit-height' />
+        </viewpoint>
+        <viewpoint name='Device Engagement'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='Event Distribution'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='KPI - Ad-Clicks'>
+          <zoom type='fit-width' />
+        </viewpoint>
+        <viewpoint name='KPI - Posts'>
+          <zoom type='fit-width' />
+        </viewpoint>
+        <viewpoint name='KPI - Sessions'>
+          <zoom type='fit-width' />
+        </viewpoint>
+        <viewpoint name='KPI - Total Events'>
+          <zoom type='fit-width' />
+        </viewpoint>
+        <viewpoint name='KPI - Total Users'>
+          <zoom type='fit-width' />
+        </viewpoint>
+        <viewpoint name='Operating System distribution'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='User Engagement Segments'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='User Growth Over Time'>
+          <zoom type='entire-view' />
+        </viewpoint>
+      </viewpoints>
+      <active id='-1' />
+      <simple-id uuid='{989F871F-AD66-4E1C-8A5E-BD321BC48D75}' />
+    </window>
+    <window class='worksheet' name='Sheet 15'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{8A2AD249-7319-4CE0-8D68-907A1CA7261A}' />
+    </window>
+    <window class='worksheet' name='Sheet 16'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{CAC3FE91-4DCA-4426-B123-2AAB982C56BF}' />
+    </window>
+    <window class='worksheet' name='Sheet 17'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{3C214481-404A-4510-8C46-0C5E345B8A15}' />
+    </window>
+    <window class='worksheet' name='Sheet 18'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{DF99C6B7-C77D-4171-80D1-4F9115FA9A7C}' />
+    </window>
+    <window class='worksheet' name='Sheet 19'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{85EB33EC-B68C-4E71-BBCD-A05FEC3B807D}' />
+    </window>
+    <window class='worksheet' name='Sheet 20'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{2CC3FF14-81B0-4A65-8EE4-8C6D24C01A5E}' />
+    </window>
+    <window class='worksheet' name='Sheet 21'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{84B36DCC-0815-467C-AD3A-8593AA1A5920}' />
+    </window>
+    <window class='worksheet' name='Sheet 22'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{E55AC5D5-6A81-40B7-BF1D-24C2BC599FAF}' />
+    </window>
+    <window class='worksheet' name='Sheet 23'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{84FDF1A5-B1CD-47F7-A9D4-31E1CD1338E4}' />
+    </window>
+    <window class='worksheet' name='Sheet 24'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{E38567FC-3950-48C2-BF6C-DE6A7C47E3ED}' />
+    </window>
+    <window class='worksheet' name='Sheet 25'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{0D9E9AE7-5637-4438-BBC6-0B67CFFF8B59}' />
+    </window>
+    <window class='worksheet' name='Sheet 26'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{6312E703-9A90-41C9-936A-5FF93A0D9F5E}' />
+    </window>
+    <window class='worksheet' name='Sheet 27'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{54AD6220-1599-4FE4-90B2-1B06216963BE}' />
+    </window>
+  </windows>
+</workbook>
